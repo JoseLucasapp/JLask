@@ -6,8 +6,8 @@ interface AnswerAttributes {
 
 export class Answer {
     private readonly _id: number;
-    public answer: string;
-    public question_id: number;
+    public answer!: string;
+    public question_id!: number;
 
     get id() {
         return this._id

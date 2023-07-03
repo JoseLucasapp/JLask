@@ -8,10 +8,10 @@ interface UserAttributes {
 
 export class User {
     private readonly _id: number;
-    public username: string;
-    public password: string;
-    public questions: number;
-    public answers: number;
+    public username!: string;
+    public password!: string;
+    public questions!: number;
+    public answers!: number;
 
     get id() {
         return this._id

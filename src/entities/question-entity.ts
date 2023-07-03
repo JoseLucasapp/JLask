@@ -6,8 +6,8 @@ interface QuestionAttributes {
 
 export class Question {
     private readonly _id: number;
-    public question: string;
-    public user_id: number;
+    public question!: string;
+    public user_id!: number;
 
     get id() {
         return this._id
