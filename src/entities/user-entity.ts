@@ -2,16 +2,16 @@ interface UserAttributes {
     id?: number;
     username: string;
     password: string;
-    questions: number;
-    answers: number;
+    questions?: number;
+    answers?: number;
 }
 
 export class User {
     private readonly _id: number;
     public username!: string;
     public password!: string;
-    public questions!: number;
-    public answers!: number;
+    public questions?: number;
+    public answers?: number;
 
     get id() {
         return this._id
@@ -19,6 +19,8 @@ export class User {
 
     constructor(props: UserAttributes, id?: number) {
         this._id = id ?? Math.random()
+        this.answers = props.answers ?? 0
+        this.questions = props.questions ?? 0
         Object.assign(this, props)
     }
 }
