@@ -8,6 +8,7 @@ export class FindAnswerByIdController {
     async handle(request: Request, response: Response): Promise<Response> {
         try {
             const answer = await this.findAnswerByIdUseCase.execute(parseInt(request.params.id))
+            if (!answer) return response.status(200).json(ReturnMessages.notFound)
             return response.status(200).json({ data: answer })
         } catch (error) {
             return response.status(400).json({
