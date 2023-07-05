@@ -4,20 +4,22 @@ import { findUserByIdController } from "../useCases/user/findUserById";
 import { updateUserController } from "../useCases/user/updateUser";
 import { deleteUserController } from "../useCases/user/deleteUser";
 
-const router = Router()
+const userRouter = Router()
 
-router.post('/user', (request: Request, response: Response) => {
+userRouter.post('/user', (request: Request, response: Response) => {
     return createUserController.handle(request, response)
 })
 
-router.get('/user/:id', (request: Request, response: Response) => {
+userRouter.get('/user/:id', (request: Request, response: Response) => {
     return findUserByIdController.handle(request, response)
 })
 
-router.get('/user/:id', (request: Request, response: Response) => {
+userRouter.get('/user/:id', (request: Request, response: Response) => {
     return updateUserController.handle(request, response)
 })
 
-router.get('/user/:id', (request: Request, response: Response) => {
+userRouter.get('/user/:id', (request: Request, response: Response) => {
     return deleteUserController.handle(request, response)
 })
+
+export { userRouter }

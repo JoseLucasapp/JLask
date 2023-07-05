@@ -18,7 +18,7 @@ export class User {
     }
 
     constructor(props: UserAttributes, id?: number) {
-        this._id = id ?? Math.random()
+        this._id = id ?? 1
         this.answers = props.answers ?? 0
         this.questions = props.questions ?? 0
         Object.assign(this, props)
