@@ -9,7 +9,7 @@ export class FindAllQuestionsController {
         try {
             const questions = await this.findAllQuestionsUseCase.execute(request.query)
 
-            return response.status(200).json(questions)
+            return response.status(200).json({ data: questions })
         } catch (error) {
             return response.status(400).json({
                 error: error || ReturnMessages.UnexpectedError

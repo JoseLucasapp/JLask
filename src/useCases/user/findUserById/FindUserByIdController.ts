@@ -8,7 +8,7 @@ export class FindUserByIdController {
     async handle(request: Request, response: Response): Promise<Response> {
         try {
             const user = await this.findUserByIdUseCase.execute(parseInt(request.params.id))
-            return response.status(200).json(user)
+            return response.status(200).json({ data: user })
         } catch (error) {
             return response.status(400).json({
                 message: error || ReturnMessages.UnexpectedError
