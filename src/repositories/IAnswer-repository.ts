@@ -1,6 +1,6 @@
 import { Answer } from "../entities/answer-entity";
 
-export interface IQuestionRepository {
+export interface IAnswerRepository {
     findAnswerById(id: number): Promise<Answer | null>
     findAllAnswers(query: any): Promise<Answer[]>
     save(data: Answer): Promise<void>
