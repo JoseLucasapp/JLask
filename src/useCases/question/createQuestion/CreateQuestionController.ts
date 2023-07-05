@@ -1,17 +1,18 @@
 import { Request, Response } from "express";
-import { CreateUserUseCase } from "./CreateUserUseCase";
+import { CreateQuestionUseCase } from "./CreateQuestionUseCase";
 import { ReturnMessages } from "../../../helpers/utils";
 
-export class CreateUserController {
-    constructor(private createUserUseCase: CreateUserUseCase) { }
+export class CreateQuestionController {
+    constructor(private createQuestionUseCase: CreateQuestionUseCase) { }
 
     async handle(request: Request, response: Response): Promise<Response> {
         try {
-            await this.createUserUseCase.execute(request.body)
+            await this.createQuestionUseCase.execute(request.body)
+
             return response.status(201).json(ReturnMessages.success)
         } catch (error) {
             return response.status(400).json({
-                message: error || ReturnMessages.UnexpectedError
+                error: error || ReturnMessages.UnexpectedError
             })
         }
     }
