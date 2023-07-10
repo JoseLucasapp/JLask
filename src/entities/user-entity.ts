@@ -1,3 +1,6 @@
+import { Model, DataTypes } from "sequelize";
+import db from "../db/connection";
+
 interface UserAttributes {
     id?: number;
     username: string;
@@ -5,7 +8,7 @@ interface UserAttributes {
     questions?: number;
     answers?: number;
 }
-
+/*
 export class User {
     private readonly _id: number;
     public username!: string;
@@ -24,3 +27,35 @@ export class User {
         Object.assign(this, props)
     }
 }
+*/
+
+export class User extends Model<UserAttributes>{
+    [x: string]: any;
+}
+
+User.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+        },
+        username: {
+            type: DataTypes.CHAR(150),
+            allowNull: false
+        },
+        password: {
+            type: DataTypes.CHAR(30)
+        },
+        questions: {
+            type: DataTypes.CHAR(300),
+        },
+        answers: {
+            type: DataTypes.CHAR(100)
+        }
+    }, {
+    sequelize: db,
+    tableName: 'users'
+}
+)
