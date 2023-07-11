@@ -49,10 +49,10 @@ User.init(
             type: DataTypes.CHAR(30)
         },
         questions: {
-            type: DataTypes.CHAR(300),
+            type: DataTypes.INTEGER,
         },
         answers: {
-            type: DataTypes.CHAR(100)
+            type: DataTypes.INTEGER,
         }
     }, {
     sequelize: db,

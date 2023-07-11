@@ -1,9 +1,13 @@
+import { DataTypes, Model } from "sequelize";
+import db from "../db/connection";
+import { User } from "./user-entity";
+
 interface QuestionAttributes {
     id?: number;
     question: string;
     user_id: number;
 }
-
+/*
 export class Question {
     private readonly _id: number;
     public question!: string;
@@ -18,3 +22,31 @@ export class Question {
         Object.assign(this, props)
     }
 }
+*/
+
+export class Question extends Model<QuestionAttributes>{
+    [x: string]: any;
+}
+
+Question.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+        },
+        question: {
+            type: DataTypes.CHAR(300),
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id'
+            },
+        }
+    }, { sequelize: db, tableName: 'questions' }
+)
+
+Question.hasMany(User)
