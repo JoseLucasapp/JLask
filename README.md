@@ -1,4 +1,4 @@
-# 📚 Perguntas e Respostas API
+# 📚 JLASK (API de Perguntas e Respostas)
 Esta é a API de um sistema de perguntas e respostas, inspirado em plataformas como Stack Overflow. Com esta API, usuários podem criar contas, postar perguntas, responder, votar e comentar em perguntas e respostas.
 
 ## 🚀 Tecnologias
